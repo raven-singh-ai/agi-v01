@@ -1,0 +1,23 @@
+{
+  "agentName": "YourAgent",
+  "humanName": "YourHuman",
+  "agentId": "main",
+  "workspace": "/Users/you/clawd",
+  "openclawDir": "/Users/you/.openclaw",
+  "llmProvider": "openai",
+  "llmModel": "gpt-4o-mini",
+  "llmApiKey": "sk-your-openai-key-here",
+  "scanDirs": [
+    "/Users/you/clawd",
+    "/Users/you/projects/your-app"
+  ],
+  "gitDirs": [
+    "/Users/you/clawd",
+    "/Users/you/projects/your-app"
+  ],
+  "consciousnessChecks": [
+    { "name": "disk-space", "cmd": "df -h / | tail -1 | awk '{print $5}'" },
+    { "name": "git-dirty", "cmd": "cd ~/clawd && git status --porcelain | wc -l | tr -d ' '" },
+    { "name": "knowledge-count", "cmd": "node -e \"const d=JSON.parse(require('fs').readFileSync(process.env.HOME+'/clawd/data/thalamus-knowledge.json','utf8')); console.log(d.principles.length + ' principles')\"" }
+  ]
+}
